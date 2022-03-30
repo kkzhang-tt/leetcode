@@ -22,7 +22,7 @@ public class GenerateParentheses {
             res.add(cur);
             return;
         }
-        
+        // 每层的选择有两种 ( & )，通过提前剪枝进行优化
         // ( 可以一直加，直到数目为 n
         if (open < n) {
             generateParenthesis(res, cur + "(", open + 1, close, n);
