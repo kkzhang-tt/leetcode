@@ -15,6 +15,8 @@ public class InterleavingString {
         if (n + m != k) {
             return false;
         }
+        // 如果数组长度定义为 [m][n] 的话，那么 f[0][0] 就表示 s1 的第一个字符 + s2 的第一个字符
+        // 那么对于 s1, s2 其中一个字符串为空的情况就无法讨论了
         boolean[][] f = new boolean[m + 1][n + 1];
         // init
         f[0][0] = true;
