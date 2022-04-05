@@ -8,7 +8,7 @@ public class PascalTriangleTest {
     private PascalTriangle solution = new PascalTriangle();
     @Test
     public void testPascalTriangle(){
-        int numRows = 1;
+        int numRows = 5;
         List<List<Integer>> res = solution.generate(numRows);
         output(res);
     }
