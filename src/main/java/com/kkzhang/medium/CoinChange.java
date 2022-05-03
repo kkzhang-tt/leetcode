@@ -1,7 +1,5 @@
 package com.kkzhang.medium;
 
-import java.util.Arrays;
-
 /**
  * https://leetcode.com/problems/coin-change/
  */
