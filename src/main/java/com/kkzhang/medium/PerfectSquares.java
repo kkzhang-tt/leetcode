@@ -26,7 +26,6 @@ public class PerfectSquares {
             }
         }
         return f[n];
-
     }
 
     private boolean isSquare(int n) {
