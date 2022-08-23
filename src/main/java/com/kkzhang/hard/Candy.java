@@ -5,6 +5,7 @@ package com.kkzhang.hard;
  */
 public class Candy {
     // 贪心算法
+    // 贪心策略: 在每次遍历中，只考虑并更新相邻一侧的大小关系
     public int candy(int[] ratings) {
         int n = ratings.length;
         if (n == 0) {
