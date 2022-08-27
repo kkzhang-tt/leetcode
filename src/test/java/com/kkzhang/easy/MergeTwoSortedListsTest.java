@@ -1,5 +1,6 @@
 package com.kkzhang.easy;
 
+import com.kkzhang.util.ListNode;
 import org.junit.Test;
 
 public class MergeTwoSortedListsTest {
@@ -7,15 +8,15 @@ public class MergeTwoSortedListsTest {
 
     @Test
     public void testMergeTwoSortedLists() {
-        MergeTwoSortedLists.ListNode node1 = new MergeTwoSortedLists.ListNode(1);
-        MergeTwoSortedLists.ListNode node2 = new MergeTwoSortedLists.ListNode(2);
-        MergeTwoSortedLists.ListNode node3 = new MergeTwoSortedLists.ListNode(4);
+        ListNode node1 = new ListNode(1);
+        ListNode node2 = new ListNode(2);
+        ListNode node3 = new ListNode(4);
         node1.next = node2;
         node2.next = node3;
 
-        MergeTwoSortedLists.ListNode node4 = new MergeTwoSortedLists.ListNode(1);
-        MergeTwoSortedLists.ListNode node5 = new MergeTwoSortedLists.ListNode(3);
-        MergeTwoSortedLists.ListNode node6 = new MergeTwoSortedLists.ListNode(4);
+        ListNode node4 = new ListNode(1);
+        ListNode node5 = new ListNode(3);
+        ListNode node6 = new ListNode(4);
         node4.next = node5;
         node5.next = node6;
 

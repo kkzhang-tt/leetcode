@@ -1,5 +1,7 @@
 package com.kkzhang.easy;
 
+import com.kkzhang.util.ListNode;
+
 /**
  * https://leetcode.com/problems/merge-two-sorted-lists/
  */
@@ -28,22 +30,5 @@ public class MergeTwoSortedLists {
             curNode = curNode.next;
         }
         return preHead.next;
-    }
-
-    static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
     }
 }
