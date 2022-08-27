@@ -1,5 +1,7 @@
 package com.kkzhang.medium;
 
+import com.kkzhang.common.ListNode;
+
 /**
  * https://leetcode.com/problems/add-two-numbers/
  */
@@ -76,23 +78,6 @@ public class AddTwoNumbers {
         }
         if (flag != 0) {
             cur.next = new ListNode(flag);
-        }
-    }
-
-    static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
         }
     }
 }

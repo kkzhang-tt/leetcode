@@ -1,4 +1,4 @@
-package com.kkzhang.util;
+package com.kkzhang.common;
 
 public class ListNode {
     public int val;

@@ -1,6 +1,6 @@
 package com.kkzhang.easy;
 
-import com.kkzhang.util.ListNode;
+import com.kkzhang.common.ListNode;
 import org.junit.Test;
 
 public class MergeTwoSortedListsTest {
