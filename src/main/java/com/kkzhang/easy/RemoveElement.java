@@ -20,11 +20,12 @@ public class RemoveElement {
      * @return
      */
     public int removeElement(int[] nums, int val) {
-        int i = 0;
-        int j = 0;
+        int i = 0; // 遍历指针
+        int j = 0; // 非指定元素的位置指针
         while (i < nums.length) {
             if (nums[i] != val) {
-                nums[j++] = nums[i];
+                nums[j] = nums[i];
+                j++;
             }
             i++;
         }

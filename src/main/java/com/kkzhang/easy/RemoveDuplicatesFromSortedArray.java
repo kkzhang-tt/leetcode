@@ -23,8 +23,8 @@ public class RemoveDuplicatesFromSortedArray {
             return nums.length;
         }
 
-        int i = 1;
-        int j = 1;
+        int i = 1; // 遍历指针
+        int j = 1; // 非重复元素的位置指针
 
         while (i < nums.length) {
             if (nums[i] != nums[i - 1]) {
