@@ -1,7 +1,5 @@
 package com.kkzhang.easy;
 
-import javafx.scene.control.Hyperlink;
-
 /**
  * https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/?envType=study-plan-v2&id=top-interview-150
  */
@@ -28,8 +26,8 @@ public class FindTheIndexOfTheFirstOccurrenceInAString {
             return -1;
         }
 
-        for (int i = 0; i <= m - n; i++) {
-            String sub = haystack.substring(i, i + n);
+        for (int i = 0; i <= n - m; i++) {
+            String sub = haystack.substring(i, i + m);
             if (sub.equals(needle)) {
                 return i;
             }

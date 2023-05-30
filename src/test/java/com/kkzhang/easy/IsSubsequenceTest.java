@@ -10,7 +10,7 @@ public class IsSubsequenceTest {
     public void testIsSubsequence() {
         String s = "axc";
         String t = "ahbgdc";
-        boolean res = solution.isSubsequence(s, t);
+        boolean res = solution.isSubsequence2(s, t);
         System.out.println(res);
     }
 }
