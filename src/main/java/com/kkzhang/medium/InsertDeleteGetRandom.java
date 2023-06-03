@@ -42,7 +42,7 @@ class RandomizedSet {
         }
         int index = nums.size();
         valToIndex.put(val, index);
-        nums.set(index, val);
+        nums.add(val);
         return true;
     }
 

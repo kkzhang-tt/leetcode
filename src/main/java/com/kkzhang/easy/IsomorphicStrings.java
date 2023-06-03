@@ -3,8 +3,6 @@ package com.kkzhang.easy;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.lang.model.util.Types;
-
 /**
  * https://leetcode.com/problems/isomorphic-strings/?envType=study-plan-v2&envId=top-interview-150
  */
@@ -39,13 +37,14 @@ public class IsomorphicStrings {
             char tChar = t.charAt(i);
             if (sMap.get(sChar) == null) {
                 sMap.put(sChar, tChar);
-            } else if (tMap.get(tChar) == null) {
-                tMap.put(tChar, sChar);
-            } else {
-                if (sMap.get(sChar) != tChar || tMap.get(tChar) != sChar) {
-                    return false;
-                }
             }
+            if (tMap.get(tChar) == null) {
+                tMap.put(tChar, sChar);
+            }
+            if (sMap.get(sChar) != tChar || tMap.get(tChar) != sChar) {
+                return false;
+            }
+
         }
         return true;
     }
