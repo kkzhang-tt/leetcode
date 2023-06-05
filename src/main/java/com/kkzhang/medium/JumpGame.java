@@ -29,7 +29,7 @@ public class JumpGame {
                 return false;
             }
             maxReach = Math.max(maxReach, i + nums[i]);
-            if (maxReach >= nums.length) {
+            if (maxReach >= nums.length - 1) {
                 return true;
             }
         }

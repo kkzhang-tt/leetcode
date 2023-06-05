@@ -46,7 +46,7 @@ public class WordPattern {
             if (pMap.get(pString) == null) {
                 pMap.put(pString, sString);
             }
-            if (!sMap.get(sString).equals(pMap.get(pString)) || !pMap.get(pString).equals(sMap.get(sString))) {
+            if (!sMap.get(sString).equals(pString) || !pMap.get(pString).equals(sString)) {
                 return false;
             }
         }
