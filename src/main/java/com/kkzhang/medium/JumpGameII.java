@@ -26,6 +26,9 @@ public class JumpGameII {
         // curFarthest 表示在 curEnd 内能够跳的最远位置
         for (int i = 0; i < nums.length - 1; i++) {
             curFarthest = Math.max(curFarthest, i + nums[i]);
+            // if (curFarthest == i + nums[i]) {
+            // System.out.println("当前位置：" + i);
+            // }
             if (i == curEnd) {
                 curEnd = curFarthest;
                 step++;
