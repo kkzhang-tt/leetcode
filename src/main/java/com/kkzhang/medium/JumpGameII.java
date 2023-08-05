@@ -6,31 +6,32 @@ package com.kkzhang.medium;
 public class JumpGameII {
     /**
      * 解题思路：
-     * 这道题可以使用贪心算法来解决。贪心算法的思想是每次选择当前可达范围内的最大跳跃距离。
+     * 这道题可以使用贪心算法来解决。我们可以在每一步选择可以跳跃的范围内，选择能够跳到最远位置的下一步。
      * 
      * 具体步骤如下：
-     * 1. 初始化变量 maxPosition 为 0，表示当前可达的最远位置。
-     * 2. 初始化变量 end 为 0，表示当前跳跃的边界，即在 end 范围内选择下一次跳跃的最远位置。
-     * 3. 初始化变量 steps 为 0，表示跳跃次数。
-     * 4. 进入循环，从第一个位置开始遍历到倒数第二个位置（nums.length - 1），执行以下操作：
-     * * 4.1 在当前可达范围内，更新最远位置 maxPosition，即 maxPosition = max(maxPosition, i +
-     * nums[i])。
-     * * 4.2 如果当前位置 i 到达了当前跳跃的边界 end，说明需要进行下一次跳跃，将 end 更新为 maxPosition，并增加跳跃次数
-     * steps++。
-     * 5. 循环结束后，返回跳跃次数 steps。
+     * 1. 初始化变量 curEnd 为 0，curFarthest 为 0，jumps 为 0。
+     * 2. 遍历数组，对于每个位置 i，执行以下操作：
+     * * 2.1 更新 curFarthest 为 max(curFarthest, i + nums[i])，表示在当前位置可以跳到的最远位置。
+     * * 2.2 如果当前位置等于 curEnd，说明已经跳到了上一步能跳到的最远位置，需要更新 curEnd 为 curFarthest，并增加 jumps。
+     * 3. 循环结束后，jumps 即为到达最后一个位置所需的最小跳跃次数。
+     * 
      * 
      */
-    public int jump2(int[] nums) {
-        int maxPosition = 0;
-        int step = 0;
+    public static int jump2(int[] nums) {
         int curEnd = 0;
-        for (int i = 0; i < nums.length; i++) {
-            maxPosition = Math.max(maxPosition, i + nums[i]);
-            if (curEnd == i) {
-                curEnd = maxPosition;
+        int curFarthest = 0;
+        int step = 0;
+
+        // curEnd 表示上一次跳的最远位置
+        // curFarthest 表示在 curEnd 内能够跳的最远位置
+        for (int i = 0; i < nums.length - 1; i++) {
+            curFarthest = Math.max(curFarthest, i + nums[i]);
+            if (i == curEnd) {
+                curEnd = curFarthest;
                 step++;
             }
         }
+
         return step;
     }
 
