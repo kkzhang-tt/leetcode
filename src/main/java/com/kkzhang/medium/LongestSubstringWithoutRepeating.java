@@ -1,12 +1,48 @@
 package com.kkzhang.medium;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * https://leetcode.com/problems/longest-substring-without-repeating-characters/
  */
 public class LongestSubstringWithoutRepeating {
+
+    /**
+     * 解题思路：
+     * 要找到一个字符串中不含有重复字符的最长子串的长度，可以使用滑动窗口的方法。
+     * 
+     * 具体步骤如下：
+     * 1. 使用一个哈希集合来存储滑动窗口中的字符，初始时滑动窗口为空，哈希集合中也为空。
+     * 2. 使用两个指针 left 和 right 表示滑动窗口的左边界和右边界，初始时都指向字符串的起始位置。
+     * 3. 遍历字符串，不断移动右指针，将右指针指向的字符添加到哈希集合中，表示字符在滑动窗口中。
+     * * * 如果遇到重复的字符，则将左指针指向的字符从哈希集合中移除，并将左指针向右移动一格，直到滑动窗口中没有重复字符为止。
+     * 4. 在遍历过程中，维护一个变量 maxLen 来记录滑动窗口的最大长度。
+     */
+    public int lengthOfLongestSubstring2(String s) {
+        if (s == null || s.length() == 0) {
+            return 0;
+        }
+        int left = 0, right = 0;
+        int lenght = 0;
+        Set<Character> window = new HashSet<>();
+        while (right < s.length()) {
+            char c = s.charAt(right);
+            if (!window.contains(c)) {
+                window.add(c);
+                lenght = Integer.max(lenght, right - left + 1);
+                right++;
+            } else {
+                char l = s.charAt(left);
+                window.remove(l);
+                left++;
+            }
+
+        }
+        return lenght;
+    }
 
     public static int lengthOfLongestSubstring(String s) {
         int n = s.length();
