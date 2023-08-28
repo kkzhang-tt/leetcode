@@ -7,6 +7,25 @@ import com.kkzhang.common.TreeNode;
  */
 public class FlattenBinaryTreeToLinkedList {
 
+    public void flatten2(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        flatten2(root.left);
+        flatten2(root.right);
+
+        TreeNode tmpRight = root.right;
+        root.right = root.left;
+        root.left = null;
+
+        while (root.right != null) {
+            root.left = null;
+            root = root.right;
+        }
+
+        root.right = tmpRight;
+    }
+
     /**
      * 解题思路：
      * 展开二叉树为链表的顺序是前序遍历的顺序。
