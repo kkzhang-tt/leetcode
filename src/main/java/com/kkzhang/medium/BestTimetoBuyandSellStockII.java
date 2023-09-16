@@ -6,7 +6,8 @@ package com.kkzhang.medium;
 public class BestTimetoBuyandSellStockII {
     /**
      * 解题思路：
-     * 本题可以采用贪心算法来解决。贪心算法的思路是只要当天的股票价格比前一天的股票价格高，就进行买入和卖出操作，以获取最大的利润。
+     * 本题可以采用贪心算法来解决。
+     * 贪心算法的思路是只要当天的股票价格比前一天的股票价格高，就进行买入和卖出操作，以获取最大的利润。
      * 
      * 具体步骤如下：
      * 1. 初始化变量 maxProfit 为 0，表示当前的最大利润。
@@ -43,6 +44,16 @@ public class BestTimetoBuyandSellStockII {
         for (int i = 1; i < n; i++) {
             if (sub[i] >= 0) {
                 maxProfit += sub[i];
+            }
+        }
+        return maxProfit;
+    }
+
+    public int maxProfit3(int[] prices) {
+        int maxProfit = 0;
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] > prices[i - 1]) {
+                maxProfit += (prices[i] - prices[i - 1]);
             }
         }
         return maxProfit;
