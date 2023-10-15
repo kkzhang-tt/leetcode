@@ -31,4 +31,17 @@ public class RemoveElement {
         }
         return j;
     }
+
+    public int removeElement2(int[] nums, int val) {
+        int m = 0; // 遍历指针
+        int n = 0; // 目标指针
+        while( m < nums.length){
+            if(nums[m] != val){
+                nums[n] = nums[m];
+                n++;
+            }
+            m++;
+        }
+        return n;
+    }
 }

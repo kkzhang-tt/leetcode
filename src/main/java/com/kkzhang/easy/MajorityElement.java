@@ -34,4 +34,24 @@ public class MajorityElement {
         }
         return candidate;
     }
+
+    public int majorityElement2(int[] nums) {
+        int res = nums[0];
+        int counter = 1;
+
+        int index = 0;
+        while (index < nums.length) {
+            if (nums[index] == res) {
+                counter++;
+            } else {
+                counter--;
+                if (counter == 0) {
+                    res = nums[index];
+                    counter = 1;
+                }
+            }
+            index++;
+        }
+        return res;
+    }
 }
