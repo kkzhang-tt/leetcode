@@ -4,8 +4,6 @@ import com.kkzhang.common.ListNode;
 import org.junit.Test;
 
 public class AddTwoNumbersTest {
-    private ListNode l1;
-
     @Test
     public void testSolution_1() {
         ListNode l1 = new ListNode(9);
