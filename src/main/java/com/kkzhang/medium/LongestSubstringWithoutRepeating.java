@@ -26,13 +26,13 @@ public class LongestSubstringWithoutRepeating {
             return 0;
         }
         int left = 0, right = 0;
-        int lenght = 0;
+        int length = 0;
         Set<Character> window = new HashSet<>();
         while (right < s.length()) {
             char c = s.charAt(right);
             if (!window.contains(c)) {
                 window.add(c);
-                lenght = Integer.max(lenght, right - left + 1);
+                length = Integer.max(length, right - left + 1);
                 right++;
             } else {
                 char l = s.charAt(left);
@@ -41,7 +41,33 @@ public class LongestSubstringWithoutRepeating {
             }
 
         }
-        return lenght;
+        return length;
+    }
+
+    public int lengthOfLongestSubstring3(String s) {
+        if (s == null || s.length() == 0) {
+            return 0;
+        }
+        int left = 0, right = 0;
+        int maxLength = 0, curLength = 0;
+        Set<Character> window = new HashSet<>();
+
+        while (right < s.length()) {
+            char c = s.charAt(right);
+            if (!window.contains(c)) {
+                window.add(c);
+                curLength = right - left + 1;
+                maxLength = Math.max(maxLength, curLength);
+                right++;
+            } else {
+                while (window.contains(c)) {
+                    char l = s.charAt(left);
+                    window.remove(l);
+                    left++;
+                }
+            }
+        }
+        return maxLength;
     }
 
     public static int lengthOfLongestSubstring(String s) {

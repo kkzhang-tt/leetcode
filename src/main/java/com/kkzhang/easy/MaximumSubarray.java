@@ -40,4 +40,24 @@ public class MaximumSubarray {
 
         return maxSum;
     }
+
+    // not correct
+    public int maxSubArray3(int[] nums) {
+        int maxSum = Integer.MIN_VALUE;
+        int curSum = 0;
+        int left = 0, right = 0;
+
+        while (right < nums.length) {
+            curSum += nums[right];
+            maxSum = Math.max(maxSum, curSum);
+            while (curSum < 0) {
+                curSum -= nums[left];
+                left++;
+            }
+
+            right++;
+        }
+        return maxSum;
+    }
+
 }
