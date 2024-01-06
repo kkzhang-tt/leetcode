@@ -1,6 +1,5 @@
 package com.kkzhang.medium;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

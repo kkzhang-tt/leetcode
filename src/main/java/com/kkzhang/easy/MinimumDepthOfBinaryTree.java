@@ -1,6 +1,7 @@
 package com.kkzhang.easy;
 
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Set;
 import java.util.concurrent.LinkedBlockingDeque;
@@ -57,6 +58,36 @@ public class MinimumDepthOfBinaryTree {
             }
             depth++;
         }
+        return depth;
+    }
+
+    public int minDepth2(TreeNode root) {
+        int depth = 0;
+        if (root == null) {
+            return depth;
+        }
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        depth++;
+        
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode node = queue.poll();
+                if (node.left == null && node.right == null) {
+                    return depth;
+                }
+                if (node.left != null) {
+                    queue.offer(node.left);
+                }
+                if (node.right != null) {
+                    queue.offer(node.right);
+                }
+            }
+            depth++;
+        }
+
         return depth;
     }
 }
