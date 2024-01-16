@@ -44,6 +44,33 @@ public class LongestSubstringWithoutRepeating {
         return length;
     }
 
+    // re-post
+    // 2024-01-16
+    public int lengthOfLongestSubstring4(String s) {
+        if (s == null || s.length() == 0) {
+            return 0;
+        }
+        int left = 0, right = 0;
+        int maxLen = 0;
+        Set<Character> window = new HashSet<>();
+        while (right < s.length()) {
+            char cur = s.charAt(right);
+            if (!window.contains(cur)) {
+                window.add(cur);
+                maxLen = Math.max(maxLen, right - left + 1);
+                right++;
+            } else {
+                while (window.contains(cur)) {
+                    char leftChar = s.charAt(left);
+                    window.remove(leftChar);
+                    left++;
+                }
+            }
+        }
+        return maxLen;
+    }
+
+    // re-post
     public int lengthOfLongestSubstring3(String s) {
         if (s == null || s.length() == 0) {
             return 0;
